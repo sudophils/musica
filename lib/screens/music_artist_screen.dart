@@ -51,6 +51,18 @@ class _ArtistMusicScreenState extends State<ArtistMusicScreen> {
               ],
             ),
             ...musicList.map((music) => Hero(
+                  flightShuttleBuilder: (
+                    BuildContext flightContext,
+                    Animation<double> animation,
+                    HeroFlightDirection flightDirection,
+                    BuildContext fromHeroContext,
+                    BuildContext toHeroContext,
+                  ) {
+                    return Image.asset(
+                      music.photoUrl,
+                      fit: BoxFit.cover,
+                    );
+                  },
                   tag: music.id,
                   child: MusicItemTile(
                     musicItemModel: music,
