@@ -41,6 +41,18 @@ class _MusicPlayerScreenState extends State<MusicPlayerScreen> {
           Expanded(
               flex: 4,
               child: Hero(
+                flightShuttleBuilder: (
+                  BuildContext flightContext,
+                  Animation<double> animation,
+                  HeroFlightDirection flightDirection,
+                  BuildContext fromHeroContext,
+                  BuildContext toHeroContext,
+                ) {
+                  return Image.asset(
+                    widget.musicItem.photoUrl,
+                    fit: BoxFit.contain,
+                  );
+                },
                 tag: widget.musicItem.id,
                 child: Container(
                   margin: const EdgeInsets.all(defaultPadding),
@@ -90,7 +102,7 @@ class _MusicPlayerScreenState extends State<MusicPlayerScreen> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("0:32",
+                      Text(_value.toStringAsFixed(2),
                           style: Theme.of(context)
                               .textTheme
                               .headline6
